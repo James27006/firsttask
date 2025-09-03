@@ -1,6 +1,6 @@
 # firsttask
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Simple To-Do</title>
   <style>
