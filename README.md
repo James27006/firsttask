@@ -2,31 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Simple To-Do</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-    input { padding: 5px; }
-    button { padding: 5px 10px; }
-    li { margin: 5px 0; }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h2>To-Do List</h2>
-  <input id="task" type="text" placeholder="New task">
-  <button onclick="addTask()">Add</button>
-  <ul id="list"></ul>
-
+<body class="p-6 font-sans text-center">
+  <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
+  <input id="task" type="text" placeholder="New task" class="border p-2 rounded mr-2" />
+  <button onclick="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded">Add</button>
+  <ul id="list" class="mt-4 list-disc list-inside max-w-md mx-auto"></ul>
   <script>
     function addTask() {
-      let task = document.getElementById("task").value;
-      if (task === "") return;
-      let li = document.createElement("li");
+      const input = document.getElementById('task');
+      const task = input.value.trim();
+      if (!task) return;
+      const li = document.createElement('li');
       li.textContent = task;
-      li.onclick = () => li.remove(); // Click to remove
-      document.getElementById("list").appendChild(li);
-      document.getElementById("task").value = "";
+      li.className = 'mb-1 cursor-pointer hover:line-through';
+      li.onclick = () => li.remove();
+      document.getElementById('list').appendChild(li);
+      input.value = '';
     }
   </script>
 </body>
 </html>
+
 
