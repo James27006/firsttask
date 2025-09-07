@@ -3,49 +3,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple To‑Do</title>
-
-  <!-- ✅ Tailwind CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple To-Do</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans text-center p-6">
+<body class="p-6 font-sans text-center">
 
-  <h1 class="text-3xl font-bold text-gray-800 mb-6">To‑Do List</h1>
+  <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
 
-  <div class="mb-4">
-    <input
-      id="task"
-      type="text"
-      placeholder="New task"
-      class="border border-gray-300 rounded px-4 py-2 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-    />
-    <button
-      onclick="addTask()"
-      class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-    >
-      Add
-    </button>
-  </div>
+  <input id="task" type="text" placeholder="New task" class="border p-2 rounded mr-2" />
+  <button onclick="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded">Add</button>
 
-  <ul id="list" class="list-disc list-inside max-w-md mx-auto text-left space-y-2"></ul>
+  <ul id="list" class="mt-4 list-disc list-inside max-w-md mx-auto"></ul>
 
   <script>
     function addTask() {
-      const input = document.getElementById("task");
-      const text = input.value.trim();
-      if (!text) return;
-
-      const li = document.createElement("li");
-      li.className = "flex justify-between items-center bg-white p-3 rounded shadow";
-      li.innerHTML = `
-        <span>${text}</span>
-        <button onclick="this.parentElement.remove()" class="text-red-500 hover:text-red-700 font-medium">
-          Remove
-        </button>
-      `;
-      document.getElementById("list").appendChild(li);
-      input.value = "";
+      const input = document.getElementById('task');
+      const task = input.value.trim();
+      if (!task) return;
+      const li = document.createElement('li');
+      li.textContent = task;
+      li.className = 'mb-1 cursor-pointer hover:line-through';
+      li.onclick = () => li.remove();
+      document.getElementById('list').appendChild(li);
+      input.value = '';
     }
   </script>
 
