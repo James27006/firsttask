@@ -8,17 +8,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="p-6 font-sans text-center">
-
-  <p class="text-gray-600 text-sm mb-1"># firsttask</p>
   <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
-
-  <div class="mb-6">
-    <input id="task" type="text" placeholder="New task" class="border border-gray-300 p-2 rounded mr-2 w-48" />
-    <button onclick="addTask()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Add</button>
-  </div>
-
-  <ul id="list" class="list-disc list-inside max-w-md mx-auto"></ul>
-
+  <input id="task" type="text" placeholder="New task" class="border p-2 rounded mr-2" />
+  <button onclick="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded">Add</button>
+  <ul id="list" class="mt-4 list-disc list-inside max-w-md mx-auto"></ul>
   <script>
     function addTask() {
       const input = document.getElementById('task');
@@ -32,6 +25,6 @@
       input.value = '';
     }
   </script>
-
 </body>
 </html>
+
